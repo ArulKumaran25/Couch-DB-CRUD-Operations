@@ -48,7 +48,6 @@ export class CustomerDetailsComponent {
       });
     }
   }
-
   getAllCustomers() {
     this.couch.getCustomers().subscribe({
       next: (response) => {
@@ -63,7 +62,6 @@ export class CustomerDetailsComponent {
       }
     });
   }
-
   updateCustomer(customer: any) {
     this.customerId = customer.customerId;
     this.customerName = customer.customerName;
@@ -95,7 +93,7 @@ export class CustomerDetailsComponent {
             this.customers[index] = { ...updatedData, _id: this.customerEdit._id, _rev: response.rev };
           }
           this.resetForm();
-          this.customerEdit = null;  // Reset after update
+          this.customerEdit = null;
         },
         error: (error) => {
           alert('Error updating customer');
