@@ -1,0 +1,47 @@
+<div class="container">
+    <h2>Customer Details</h2>
+    <form>
+      <label for="customerId">Customer ID</label>
+      <input type="text" name="customerId" [(ngModel)]="customerId" placeholder="Enter Customer ID" />
+  
+      <label for="customerName">Customer Name</label>
+      <input type="text" name="customerName" [(ngModel)]="customerName" placeholder="Enter Customer Name" />
+  
+      <label for="email">Email</label>
+      <input type="text" name="email" [(ngModel)]="email" placeholder="Enter Email" />
+  
+      <label for="phoneNumber">Phone Number</label>
+      <input type="number" name="phoneNumber" [(ngModel)]="phoneNumber" placeholder="Enter Phone Number" />
+  
+      <button (click)="customerEdit ? update() : create()">
+        {{ customerEdit ? "Update Customer" : "Add Customer" }}
+      </button>
+    </form>
+  </div>
+  
+
+    <div class="container">
+    <table>
+      <thead>
+        <tr>
+          <th>Customer ID</th>
+          <th>Customer Name</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of customers">
+          <td>{{ customer.customerId }}</td>
+          <td>{{ customer.customerName }}</td>
+          <td>{{ customer.email }}</td>
+          <td>{{ customer.phoneNumber }}</td>
+          <td><button class="edit" (click)="updateCustomer(customer)">Edit</button></td>
+          <td><button class="delete" (click)="deleteCustomerById(customer._id, customer._rev)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
