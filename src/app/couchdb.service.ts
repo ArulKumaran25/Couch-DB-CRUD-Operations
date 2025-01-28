@@ -17,23 +17,23 @@ export class CouchdbService {
     'Content-Type':'application/json'
   });
 
-  addCustomer(data: any) {
-    return this.http.post<any>(this.baseURL, data, { headers: this.headers });
+  addCustomer(data:any) {
+    return this.http.post<any>(this.baseURL,data,{ headers: this.headers });
   }
 
   getCustomers() {
     const url=`${this.baseURL}/_all_docs?include_docs=true`;
-    return this.http.get<any>(url,{ headers: this.headers });
+    return this.http.get<any>(url,{headers:this.headers});
   }
   
-  updateCustomer(_id: string, _rev: string, data: any) {
+  updateCustomer(_id:string,_rev:string,data:any) {
     const url=`${this.baseURL}/${_id}`;
     const updatedData={...data,_rev:_rev};
-    return this.http.put<any>(url, updatedData, { headers: this.headers });
+    return this.http.put<any>(url, updatedData,{headers:this.headers});
   }
   
-  deleteCustomer(_id: string, _rev: string) {
+  deleteCustomer(_id:string,_rev:string) {
     const url = `${this.baseURL}/${_id}?rev=${_rev}`;
-    return this.http.delete<any>(url, { headers: this.headers });
+    return this.http.delete<any>(url,{ headers: this.headers });
   }
 }

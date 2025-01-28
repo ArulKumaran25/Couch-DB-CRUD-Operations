@@ -19,7 +19,6 @@
     </form>
   </div>
   
-
     <div class="container">
     <table>
       <thead>
@@ -38,8 +37,8 @@
           <td>{{ customer.customerName }}</td>
           <td>{{ customer.email }}</td>
           <td>{{ customer.phoneNumber }}</td>
-          <td><button class="edit" (click)="updateCustomer(customer)">Edit</button></td>
-          <td><button class="delete" (click)="deleteCustomerById(customer._id, customer._rev)">Delete</button></td>
+          <td><button class="edit"(click)="updateCustomer(customer)">Edit</button></td>
+          <td><button class="delete"(click)="deleteCustomerById(customer._id,customer._rev)">Delete</button></td>
         </tr>
       </tbody>
     </table>
